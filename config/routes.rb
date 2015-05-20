@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  namespace :admin do
+    root 'dashboard#index'
+  end
 =begin
   devise_scope :user do
       get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
