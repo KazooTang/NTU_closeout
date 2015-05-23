@@ -1,0 +1,16 @@
+<h1>We have <%= pluralize @products.count, 'product' %> now! </h1>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>Message</th>
+        <th></th>
+    </tr>
+    <% @product.each do |p| %>
+        <tr>
+            <td><%= link_to image_tag(p.picture), p.link %></td>
+            <td><%= truncate p.message, length: 50, seperator: ' ' %></td>
+            <td><%= link_to "Meow", p.link %></td>
+
+        </tr>
+    <% end %>
+</table
