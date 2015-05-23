@@ -19,5 +19,6 @@ while d
     p.updated_time = Time.parse(x['updated_time'])
     p.save
   end
+  break if d.last['updated_time'] < Time.now - 1.minute
   d = d.next_page
 end
