@@ -1,6 +1,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.test {
+    float: left;
+    border-style:dotted;
+    margin: 50px;
+    width: 150px;
+    //height: 250px;
+}
+
+.img_p {
+    text-align: center;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

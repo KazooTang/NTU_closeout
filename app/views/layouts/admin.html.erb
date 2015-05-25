@@ -1,21 +1,21 @@
 <!-- copy from application.html.erb --!>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Admin</title>
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-        <%= csrf_meta_tags %>
-    </head>
-    <body>
-        <%= render 'layouts/navbar' %>
+<head>
+<title>Admin</title>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
+</head>
+<body>
+<%= render 'layouts/navbar' %>
 
-        <div class="container">
-            <%= render 'flash_message' %>
-            <h1>Admin Meow!</h1>
-            <%= yield %>
-        </div>
+<div class="container">
+<%= render 'flash_message' %>
+<h1>Admin Meow!</h1>
+<%= yield %>
+</div>
 
-            </body>
-            </html>
+</body>
+</html>
 

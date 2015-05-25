@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   get 'products' => 'products#index', as: 'products'
+  get 'productslist' => 'products#indexlist', as: 'products_list'
+  get 'sold' => 'products#sold', as: 'products_sold'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   namespace :admin do
     root 'dashboard#index'
