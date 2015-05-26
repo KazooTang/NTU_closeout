@@ -1,8 +1,8 @@
 <div>
     <% @product.each do |p| %>
-    <div class="test">
-        <div class="img_p"><%= link_to image_tag(p.picture), p.link %></div>
-        <div class="message"><%= simple_format(p.message) %></div>
-    </div>
+        <div class="test">
+            <div class="img_p"><%= link_to image_tag(product_image(p)), p.link %></div>
+            <div class="message"><%= simple_format(p.message) %></div>
+        </div>
     <% end %>
 </div>

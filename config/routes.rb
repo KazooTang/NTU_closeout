@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :attachments
   root 'welcome#index'
   get 'products' => 'products#index', as: 'products'
   get 'productslist' => 'products#indexlist', as: 'products_list'

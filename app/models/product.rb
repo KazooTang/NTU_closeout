@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  has_many :attachments
+
   def self.updated
     where('updated_time > ?', Time.now - 10.days).order('updated_time desc')
   end
