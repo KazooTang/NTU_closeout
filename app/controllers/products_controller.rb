@@ -4,6 +4,10 @@ class ProductsController < ApplicationController
     @product = Product.created.limit(25)
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+
   def indexlist
     @product = Product.created.limit(25)
   end

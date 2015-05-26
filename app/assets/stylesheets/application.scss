@@ -1,27 +1,3 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-.test {
-    float: left;
-    border-style:none;
-    background-color: #FF9999;
-    border-radius: 15px;
-    margin: 30px;
-    padding: 5px;
-    width: 200px;
-    height: 300px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.img_p {
-    margin: 5px;
-    padding: 5px;
-    background-color: #FFF;
-    border-radius: 12px;
-    text-align: center;
-}
-
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -37,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
