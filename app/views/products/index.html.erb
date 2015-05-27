@@ -1,3 +1,4 @@
-<h1>We have <%= pluralize @products.count, 'product' %> now! </h1>
+<h1>We have <%= pluralize @products_all.count, 'product' %> now! </h1>
 <%= render 'table' %>
+<%= paginate @products %>
 

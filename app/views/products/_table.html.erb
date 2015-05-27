@@ -8,9 +8,9 @@
         <th>Created at</th>
         <th>Updated at</th>
     </tr>
-    <% @product.each do |p| %>
+    <% @products.each do |p| %>
         <tr>
-            <td style="text-align: center"><%= link_to image_tag(p.picture), product_path(p), title: "link to facebbok" %></td>
+            <td style="text-align: center"><%= link_to image_for(p), product_path(p), title: "See Attachments" %></td>
             <td><%= simple_format(p.message) %> </td>
             <td><%= link_to p.name, "https://www.facebook.com/#{p.uid}" %></td>
             <td><%= p.created_time %> (<%= time_ago_in_words(p.created_time) %> ago)</td>
