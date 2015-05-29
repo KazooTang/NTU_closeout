@@ -30,6 +30,6 @@ while d
       a.save
     end
   end
-  break if d.last['updated_time'] < Time.now - 2.minutes
+  break if d.last['updated_time'] < Time.now - 1.day
   d = d.next_page
 end

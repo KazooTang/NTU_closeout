@@ -26,7 +26,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # get data from facebook
-gem "koala", "~> 2.0"
+
+
 
 # divide pages
 gem "kaminari"

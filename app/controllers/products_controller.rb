@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products_all = Product.all
+    @products_n = Product.all.count
     @products = Product.updated.page(params[:page]).per(25)
   end
 

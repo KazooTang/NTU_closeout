@@ -1,3 +1,3 @@
-<% @products.attachments.each do |x| %>
-    <%= image_tag x.image_src %>
+<% @product.attachments.each do |x| %>
+    <%= link_to image_tag(x.image_src, :class => 'img_show'), x.ourl %>
 <% end %>
