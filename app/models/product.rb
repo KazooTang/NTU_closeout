@@ -13,4 +13,11 @@ class Product < ActiveRecord::Base
     where("message like ?", "%SOLD%") || where("message like ?", "%已售出%")
   end
 
+  def self.search(search)
+    if search
+      where('message like ?', "%#{search}%")
+    else
+      all
+    end
+  end
 end

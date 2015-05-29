@@ -1,8 +1,11 @@
 <div>
     <% @products.each do |p| %>
         <div class="test">
-            <div class="img_p"><%= link_to image_tag(product_image(p)), p.link %></div>
+            <div style="text-align: center"><%= link_image_for(p) %></div>
             <div class="message"><%= simple_format(p.message) %></div>
+            <div><%= p.created_time %></div>
         </div>
     <% end %>
 </div>
+<%= paginate @products %>
+
