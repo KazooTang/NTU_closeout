@@ -2,15 +2,19 @@ class Product < ActiveRecord::Base
   has_many :attachments
 
   def self.updated
-    where('updated_time > ?', Time.now - 10.days).order('updated_time desc')
+    order('updated_time desc')
   end
 
   def self.created
-    where('created_time > ?', Time.now - 10.days).order('created_time desc')
+    order('created_time desc')
+  end
+
+  def self.selling
+    where.not('message like ? OR message like ?', '%SOLD%', '%已售出%')
   end
 
   def self.sold
-    where("message like ?", "%SOLD%") || where("message like ?", "%已售出%")
+    where('message like ? OR message like ?', '%SOLD%', '%已售出%')
   end
 
   def self.search(search)

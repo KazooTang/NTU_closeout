@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :attachments
   root 'welcome#index'
   get 'products' => 'products#index', as: 'products'
-  get 'products/search' => 'products#search', as: 'products_search'
   get 'products/:id' => 'products#show', as: 'product'
   get 'productslist' => 'products#indexlist', as: 'products_list'
   get 'sold' => 'products#sold', as: 'products_sold'
