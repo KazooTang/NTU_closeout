@@ -1,6 +1,6 @@
 <table class="table" style="table-layout:fixed; word-break:break-all">
-    <col width="400px">
     <col width="300px">
+    <col width="320px">
     <tr>
         <th>Picture</th>
         <th>Message</th>
@@ -12,17 +12,17 @@
         <% end %>
     </tr>
     <% @products.each do |p| %>
-        <tr>
+        <tr id="list">
             <td style="text-align: center"><%= link_image_for(p) %></td>
-            <td><%= simple_format(p.message) %> </td>
+            <td><div class="scroll"><%= simple_format(p.message) %></div></td>
             <td><%= link_to p.name, "https://www.facebook.com/#{p.uid}" %></td>
-            <td><%= p.created_time %> (<%= time_ago_in_words(p.created_time) %> ago)</td>
-            <td><%= p.updated_time %> (<%= time_ago_in_words(p.updated_time) %> ago)</td>
+            <td><%= time_ago_in_words(p.created_time) %></td>
+            <td><%= time_ago_in_words(p.updated_time) %></td>
             <% if user_signed_in? %>
                 <% if current_page?(follows_path) %>
                     <td><%= link_to 'Destroy', follow_path(current_user.follows.where(product: p)[0].id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 <% else %>
-                    <td><%= link_to 'Follow!', follows_path(p), method: :post %></th>
+                    <td><%= link_to image_tag('loveca-2-01.png'), follows_path(p), method: :post %></th>
                 <% end %>
             <% end %>
         </tr>

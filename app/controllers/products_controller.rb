@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   end
 
   def sold
-    @products = Product.sold.page(params[:page]).per(25)
+    @products = Product.sold.page(params[:page]).per(25).updated
   end
 
 end
