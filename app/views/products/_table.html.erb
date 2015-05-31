@@ -7,6 +7,9 @@
         <th>Seller</th>
         <th>Created at</th>
         <th>Updated at</th>
+        <% if user_signed_in? || current_page?(follows_path) %>
+            <th colspan="1"></th>
+        <% end %>
     </tr>
     <% @products.each do |p| %>
         <tr>
@@ -15,7 +18,13 @@
             <td><%= link_to p.name, "https://www.facebook.com/#{p.uid}" %></td>
             <td><%= p.created_time %> (<%= time_ago_in_words(p.created_time) %> ago)</td>
             <td><%= p.updated_time %> (<%= time_ago_in_words(p.updated_time) %> ago)</td>
-
+            <% if user_signed_in? %>
+                <% if current_page?(follows_path) %>
+                    <td><%= link_to 'Destroy', follow_path(current_user.follows.where(product: p)[0].id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% else %>
+                    <td><%= link_to 'Follow!', follows_path(p), method: :post %></th>
+                <% end %>
+            <% end %>
         </tr>
     <% end %>
 </table>

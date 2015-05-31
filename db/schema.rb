@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150525121549) do
+ActiveRecord::Schema.define(version: 20150530074949) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "image_src"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20150525121549) do
   end
 
   add_index "attachments", ["product_id"], name: "index_attachments_on_product_id"
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "follows", ["product_id"], name: "index_follows_on_product_id"
+  add_index "follows", ["user_id"], name: "index_follows_on_user_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "pid",          null: false

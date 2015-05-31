@@ -1,12 +1,12 @@
 Rails.application.configure do
   # http://stackoverflow.com/questions/8186584/how-do-i-set-up-email-confirmation-with-devise
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'localhost:3020' }
+  config.action_mailer.delivery_method = :letter_opener
   # https://ihower.tw/rails4/actionmailer.html
   config.action_mailer.smtp_settings = {
     :address => "smtp.mandrillapp.com",
     :port => "587",
-    :domain => "gmail.com",
+    :domain => "0.0.0.0",
     :authentication => "plain",
     :user_name => "st870522@gmail.com",
     :password => "g-ttLrdTZHe62jvPnE-cCA",

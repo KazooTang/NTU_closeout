@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def index
     @products_n = Product.all.count
-    @products = Product.search(params[:search]).selling.updated.page(params[:page]).per(25)
+    @products = Product.search(params[:search]).selling.created.page(params[:page]).per(25)
   end
 
   def show
