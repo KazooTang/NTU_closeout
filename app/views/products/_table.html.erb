@@ -1,3 +1,13 @@
+<script>
+$( '.scrollable' ).bind( 'mousewheel DOMMouseScroll', function ( e ) {
+    var e0 = e.originalEvent,
+        delta = e0.wheelDelta || -e0.detail;
+    
+    this.scrollTop -= delta;
+    e.preventDefault();
+});
+</script>
+
 <table class="table" style="table-layout:fixed; word-break:break-all">
     <col width="300px">
     <col width="320px">
@@ -14,10 +24,10 @@
     <% @products.each do |p| %>
         <tr id="list">
             <td style="text-align: center"><%= link_image_for(p) %></td>
-            <td><div class="scroll"><%= simple_format(p.message) %></div></td>
+            <td><div class="scrollable"><%= simple_format(p.message) %></div></td>
             <td><%= link_to p.name, "https://www.facebook.com/#{p.uid}" %></td>
-            <td><%= time_ago_in_words(p.created_time) %></td>
-            <td><%= time_ago_in_words(p.updated_time) %></td>
+            <td><%= time_ago_in_words(p.created_time) %> ago</td>
+            <td><%= time_ago_in_words(p.updated_time) %> ago</td>
             <% if user_signed_in? %>
                 <% if current_page?(follows_path) %>
                     <td><%= link_to 'Destroy', follow_path(current_user.follows.where(product: p)[0].id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
