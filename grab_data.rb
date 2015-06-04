@@ -1,5 +1,4 @@
-require "Koala"
-require "Time"
+require "koala"
 
 g = Koala::Facebook::API.new(IO.read('token'))
 
@@ -28,8 +27,9 @@ while d
       a.ourl = y['target']['url']
       a.product = p
       a.save
+      p p
     end
   end
-#  break if d.last['updated_time'] < Time.now - 3.days
+  break if d.last['updated_time'] < Time.now - 3.days
   d = d.next_page
 end
