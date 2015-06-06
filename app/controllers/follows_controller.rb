@@ -7,12 +7,8 @@ class FollowsController < ApplicationController
 
   def create
     if current_user.follows.where(product_id: params[:format]).empty?
-      @follow = Follow.new
-      @follow.product = Product.find(params[:format])
-      @follow.user = current_user
-      if @follow.save
-        flash[:notice] = "Added!"
-      end
+      @follow = Follow.create(product: Product.find(params[:format]), user: current_user)
+      flash[:notice] = "Added!"
     else
       flash[:notice] = "You've added already!"
     end

@@ -1,8 +1,8 @@
 <script>
 $( '.scrollable' ).bind( 'mousewheel DOMMouseScroll', function ( e ) {
     var e0 = e.originalEvent,
-        delta = e0.wheelDelta || -e0.detail;
-    
+    delta = e0.wheelDelta || -e0.detail;
+
     this.scrollTop -= delta;
     e.preventDefault();
 });
