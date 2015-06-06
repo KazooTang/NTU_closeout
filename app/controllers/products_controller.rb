@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def index
     @products_n = Product.all.count
-    @products = Product.search(params[:search]).selling.created.page
+    @products = Product.search(params[:search]).selling.created.page(params[:page])
   end
 
   def show
@@ -9,10 +9,10 @@ class ProductsController < ApplicationController
   end
 
   def indexlist
-    @products = Product.created.selling.page.per(28)
+    @products = Product.created.selling.page(params[:page]).per(28)
   end
 
   def sold
-    @products = Product.sold.page.updated
+    @products = Product.sold.page(params[:page]).updated
   end
 end
