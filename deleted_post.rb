@@ -7,6 +7,7 @@ Product.all.each do |x|
     g.get_object(x.pid)
   rescue
     p = Product.where(pid: x.pid)
-    p p[0].destroy
+    p[0].message = '(DELETED)' + p[0].message
+    puts p[0].save
   end
 end

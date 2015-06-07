@@ -11,11 +11,11 @@ class Product < ActiveRecord::Base
   end
 
   def self.selling
-    where.not('message like ? OR message like ?', '%SOLD%', '%已售出%').where.not(message: nil)
+    where.not('message like ? OR message like ? OR message like ?', '%SOLD%', '%已售出%', '%(DELETED)%').where.not(message: nil)
   end
 
   def self.sold
-    where('message like ? OR message like ?', '%SOLD%', '%已售出%')
+    where('message like ? OR message like ? OR message like ?', '%SOLD%', '%已售出%', '%(DELETED)%')
   end
 
   def self.search(search)

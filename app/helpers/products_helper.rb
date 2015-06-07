@@ -11,9 +11,9 @@ module ProductsHelper
 
   def link_user_follow(u, p)
     if u.follows.where(product_id: p).empty?
-      link_to image_tag('add-01.png'), follows_path(p), method: :post
+      link_to 'Follow', follows_path(p), method: :post, class: 'btn btn-primary'
     else
-      link_to image_tag('add-02.png'), follow_path(u.follows.where(product: p)[0].id), method: :delete#, data: { confirm: 'Are you sure?'}
+      link_to 'Unfollow', follow_path(u.follows.where(product: p)[0].id), method: :delete, class: 'btn btn-warning'#, data: { confirm: 'Are you sure?'}
     end
   end
 end
