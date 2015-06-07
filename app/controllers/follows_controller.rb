@@ -19,6 +19,6 @@ class FollowsController < ApplicationController
     @follow = Follow.find(params[:id])
     @follow.destroy
     flash[:notice] = 'Deleted!'
-    redirect_to follows_path
+    redirect_to :back
   end
 end
