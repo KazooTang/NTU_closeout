@@ -30,6 +30,6 @@ while d
       p p
     end
   end
-#  break if d.last['updated_time'] < Time.now - 3.days
+  break if d.last['updated_time'] < Time.now - 5.days
   d = d.next_page
 end

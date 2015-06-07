@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products_n = Product.all.count
+    @products_n = Product.count
     @products = Product.search(params[:search]).selling.created.page(params[:page])
   end
 

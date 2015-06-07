@@ -9,11 +9,4 @@ module ProductsHelper
     link_to image_tag(img, :class => 'img_p'), url, :title => "Show Attachments"
   end
 
-  def product_image(p)
-    if p.attachments.empty?
-      p.picture
-    else
-      p.attachments.first.image_src
-    end
-  end
 end

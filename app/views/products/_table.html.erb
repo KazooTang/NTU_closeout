@@ -32,7 +32,7 @@ $( '.scrollable' ).bind( 'mousewheel DOMMouseScroll', function ( e ) {
                 <% if current_page?(follows_path) %>
                     <td><%= link_to 'Destroy', follow_path(current_user.follows.where(product: p)[0].id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 <% else %>
-                    <td><%= link_to image_tag('loveca-2-01.png'), follows_path(p), method: :post %></th>
+                    <td><%= link_to image_tag('loveca-2-01.png'), follows_path(p), method: :post, remote: true %></th>
                 <% end %>
             <% end %>
         </tr>
