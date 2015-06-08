@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   resources :attachments
-  resources :follows, only:[:index, :destroy, :create]
+  resources :follows, only:[:destroy, :create]
   resources :products, only:[:index, :show]
   root 'welcome#index'
   get 'productslist' => 'products#indexlist', as: 'products_list'
   get 'sold' => 'products#sold', as: 'products_sold'
+  get 'follows' => 'users#follows', as: 'user_follows'
+  get 'post' => 'users#post', as: 'user_post'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  get 'users/follows' => 'users#follows', as: 'user_follows'
   namespace :admin do
     root 'dashboard#index'
   end

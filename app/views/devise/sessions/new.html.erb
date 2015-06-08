@@ -18,9 +18,9 @@
     </div>
   <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+  <p><div class="actions">
+    <%= f.submit "Log in", class: 'btn btn-default' %>
+  </div></p>
 <% end %>
 
-<%= render "users/shared/links" %>
+<%= render "devise/shared/links" %>

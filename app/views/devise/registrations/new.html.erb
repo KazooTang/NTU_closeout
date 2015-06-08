@@ -21,9 +21,9 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+  <p><div class="actions">
+    <%= f.submit "Sign up", class: 'btn btn-default' %>
+  </div></p>
 <% end %>
 
-<%= render "users/shared/links" %>
+<%= render "devise/shared/links" %>

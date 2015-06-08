@@ -16,7 +16,7 @@ while d
     p.link = x['link']
     p.created_time = Time.parse(x['created_time'])
     p.updated_time = Time.parse(x['updated_time'])
-    p.save
+    p.save if !(p.message.nil? && p.picture.nil?)
     
     dd = g.get_object("#{p.pid}?fields=attachments")
     next if !dd.include?('attachments') || !dd['attachments']['data'].first.include?('subattachments')
@@ -30,6 +30,6 @@ while d
       p p
     end
   end
-  break if d.last['updated_time'] < Time.now - 5.days
+  break if d.last['updated_time'] < Time.now - 3.days
   d = d.next_page
 end
