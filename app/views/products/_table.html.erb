@@ -24,7 +24,7 @@ $( '.scrollable' ).bind( 'mousewheel DOMMouseScroll', function ( e ) {
     <% @products.each do |p| %>
         <tr id="list">
             <td style="text-align: center"><%= link_image_for(p) %></td>
-            <td><div class="scrollable"><%= simple_format(p.message) %></div></td>
+            <td><div class="scrollable"><%= simple_format(auto_link(p.message)) %></div></td>
             <td><%= link_to p.name, "https://www.facebook.com/#{p.uid}" %></td>
             <td><%= time_ago_in_words(p.created_time) %> ago</td>
             <td><%= time_ago_in_words(p.updated_time) %> ago</td>
