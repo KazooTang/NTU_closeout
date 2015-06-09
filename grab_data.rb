@@ -13,21 +13,23 @@ while d
     p.name = x['from']['name']
     p.message = x['message']
     p.picture = x['picture']
-    p.link = x['link']
+    p.link = x['link'] || 'https://www.facebook.com/' + gid + '/posts/' + p.pid[/_(.*)/, 1]
     p.created_time = Time.parse(x['created_time'])
     p.updated_time = Time.parse(x['updated_time'])
     p.save if !(p.message.nil? && p.picture.nil?)
     
-    dd = g.get_object("#{p.pid}?fields=attachments")
-    next if !dd.include?('attachments') || !dd['attachments']['data'].first.include?('subattachments')
-    dd['attachments']['data'].first['subattachments']['data'].each do |y|
-      a = Attachment.find_by(oid: y['target']['id']) || Attachment.new
-      a.image_src = y['media']['image']['src']
-      a.oid = y['target']['id']
-      a.ourl = y['target']['url']
-      a.product = p
-      a.save
-      p p
+    begin
+      dd = g.get_object("#{p.pid}?fields=attachments")
+      next if !dd.include?('attachments') || !dd['attachments']['data'].first.include?('subattachments')
+      dd['attachments']['data'].first['subattachments']['data'].each do |y|
+        a = Attachment.find_by(oid: y['target']['id']) || Attachment.new
+        a.image_src = y['media']['image']['src']
+        a.oid = y['target']['id']
+        a.ourl = y['target']['url']
+        a.product = p
+        a.save
+        p p
+      end
     end
   end
   break if d.last['updated_time'] < Time.now - 3.days

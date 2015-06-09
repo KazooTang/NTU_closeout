@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @products = Product.where(name: current_user.name)
   end
 
-  def follows
+  def follow
     @products = current_user.follows.map{|x| x.product}
   end
 end
