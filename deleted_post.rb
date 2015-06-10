@@ -2,7 +2,7 @@ require "koala"
 
 g = Koala::Facebook::API.new(IO.read('token'))
 
-Product.all[4841..-1].each do |x|
+Product.all.each do |x|
   p x.id
   begin
     g.get_object(x.pid)
