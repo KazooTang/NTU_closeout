@@ -10,7 +10,7 @@
                 <li><a href=<%= products_sold_path %>>Sold</a></li>
                 <li><a href="#">Page 3</a></li>
                 <li>
-                <%= form_tag products_path, method: :get, class: 'navbar-form' do %>
+                <%= form_tag products_search_path, method: :get, class: 'navbar-form' do %>
                     <%= text_field_tag :search, params[:search], size: 50, placeholder: 'Product name or description keyword', class: 'form-control' %>
                     <%= submit_tag "GO!", name: nil, class: 'btn btn-default'%>
                 <% end %>

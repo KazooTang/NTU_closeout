@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :products, only:[:index, :show]
   root 'welcome#index'
   get 'productslist' => 'products#indexlist', as: 'products_list'
+  get 'search' => 'products#search', as: 'products_search'
   get 'sold' => 'products#sold', as: 'products_sold'
   get 'follows' => 'users#follow', as: 'user_follows'
   get 'post' => 'users#post', as: 'user_posts'

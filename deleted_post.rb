@@ -2,12 +2,12 @@ require "koala"
 
 g = Koala::Facebook::API.new(IO.read('token'))
 
-Product.all.each do |x|
+Product.last.id.downto(1) do |i|
   begin
-    g.get_object(x.pid)
+    g.get_object(Product.find(i).pid)
   rescue
-    p = Product.where(pid: x.pid)
-    p[0].message = '(DELETED)' + p[0].message if p[0].message
+    p = Product.where(pid: Product.find(i).pid)
+    p[0].message = '(DELETED)' + p[0].message if p[0].message && !p[0].message.include?('(DELETED)')
     p[0].save
   end
 end
