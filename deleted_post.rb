@@ -3,7 +3,6 @@ require "koala"
 g = Koala::Facebook::API.new(IO.read('token'))
 
 Product.all.each do |x|
-  p x.id
   begin
     g.get_object(x.pid)
   rescue

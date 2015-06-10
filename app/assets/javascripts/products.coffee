@@ -2,10 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$('.scrollable').bind 'mousewheel DOMMouseScroll', (e) ->
+$(document).ready ->
+  $('.scrollable').bind 'mousewheel DOMMouseScroll', (e) ->
     e0 = e.originalEvent
     delta = e0.wheelDelta or -e0.detail
-    alert 'meow'
+    console.log 'meow'
     @scrollTop -= delta
     e.preventDefault()
-    return

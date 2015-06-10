@@ -13,7 +13,6 @@ while d
     p.name = x['from']['name']
     p.message = x['message']
     p.picture = g.get_object("#{p.pid}?fields=full_picture")['full_picture']
-    p p.picture
     p.link = x['link'] || 'https://www.facebook.com/' + gid + '/posts/' + p.pid[/_(.*)/, 1]
     p.created_time = Time.parse(x['created_time'])
     p.updated_time = Time.parse(x['updated_time'])
@@ -33,6 +32,6 @@ while d
     rescue
     end
   end
-  break if d.last['updated_time'] < Time.now - 2.hours
+  break if d.last['updated_time'] < Time.now - 30.minutes
   d = d.next_page
 end
