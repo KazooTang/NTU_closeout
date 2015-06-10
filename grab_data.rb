@@ -12,7 +12,11 @@ while d
     p.uid = x['from']['id']
     p.name = x['from']['name']
     p.message = x['message']
-    p.picture = g.get_object("#{p.pid}?fields=full_picture")['full_picture']
+    begin
+      p.picture = g.get_object("#{p.pid}?fields=full_picture")['full_picture'] || x['picture']
+    rescue
+      p.picture = x['picture']
+    end
     p.link = x['link'] || 'https://www.facebook.com/' + gid + '/posts/' + p.pid[/_(.*)/, 1]
     p.created_time = Time.parse(x['created_time'])
     p.updated_time = Time.parse(x['updated_time'])
@@ -30,8 +34,10 @@ while d
         a.save
       end
     rescue
+      p p.pid
     end
+    p p.pid
   end
-  break if d.last['updated_time'] < Time.now - 30.minutes
+  break if d.last['updated_time'] < Time.now - ARGV[0].to_i.minutes
   d = d.next_page
 end

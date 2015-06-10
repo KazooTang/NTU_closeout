@@ -1,8 +1,11 @@
 set :environment, "development"
-
+set :output, {:standard => '/path/to/file.log'}
+env :MAILTO, "st870522@gmail.com"
+=begin
 every 1.minute do
-  runner 'grab_data.rb'
+  runner 'grab_data.rb 10'
 end
+=end
 
 every 3.hours do
   runner 'deleted_post.rb'
