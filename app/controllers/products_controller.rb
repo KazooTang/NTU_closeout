@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   end
 
   def indexlist
-    @products = Product.created.selling.page(params[:page]).per(28)
+    @products = Product.created.selling.page(params[:page])
   end
 
   def sold

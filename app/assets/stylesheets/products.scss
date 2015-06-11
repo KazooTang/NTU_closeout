@@ -2,19 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $list_width: 230px;
+$test: 200px;
 
-
-.test {
+.test_2 {
   float: left;
-  border-radius: 5px;
-//  background-color: #FFDDDD;
-  border-bottom-style:dotted;
-  margin: 20px;
-  padding: 5px;
-  width: $list_width;
-  height: 400px;
-  text-overflow: ellipsis;
+  width: $test;
+  height: $test;
+  text-align: center;
+  position:relative;
   overflow: auto;
+  text-overflow: ellipsis;
+  margin: 5px;
+}
+
+.test_img {
+  object-fit: cover;
+  object-position: center; 
+  width: $test;
+  height: $test;
+  margin: 5px;
 }
 
 .img_p {

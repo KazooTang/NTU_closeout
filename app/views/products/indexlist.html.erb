@@ -1,11 +1,21 @@
-<div>
+<div class='container'>
     <% @products.each do |p| %>
-        <div class="test">
-            <div style="text-align: center"><%= link_image_for(p) %></div>
-            <div class="message"><%= simple_format(p.message) %></div>
-            <div><%= p.created_time %></div>
-        </div>
+        <% if p.attachments.empty? %>
+            <% if p.picture %>
+                <%= image_tag(p.picture, class: 'test_img') %>
+            <% else %>
+                <div class='test_2'>
+                    <%= simple_format(p.message) %>
+                </div>
+            <% end %>
+        <% else %>
+            <% p.attachments.each do |a| %>
+                <%= image_tag(a.image_src, class: 'test_img') %>
+        <% end %>
     <% end %>
+<% end %>
 </div>
+<p>
 <%= paginate @products %>
+</p>
 
