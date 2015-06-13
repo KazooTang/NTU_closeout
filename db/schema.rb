@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530074949) do
+ActiveRecord::Schema.define(version: 20150611184155) do
 
   create_table "attachments", force: :cascade do |t|
-    t.string   "image_src"
-    t.string   "oid"
-    t.string   "ourl"
+    t.string   "picture"
+    t.string   "pid"
+    t.string   "link"
     t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

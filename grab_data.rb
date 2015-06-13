@@ -17,7 +17,7 @@ while d
     rescue
       p.picture = x['picture']
     end
-    p.link = x['link'] || 'https://www.facebook.com/' + gid + '/posts/' + p.pid[/_(.*)/, 1]
+    p.link = 'https://www.facebook.com/' + gid + '/posts/' + p.pid[/_(.*)/, 1]
     p.created_time = Time.parse(x['created_time'])
     p.updated_time = Time.parse(x['updated_time'])
     p.save if !(p.message.nil? && p.picture.nil?)

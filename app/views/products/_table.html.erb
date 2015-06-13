@@ -1,27 +1,27 @@
 <table class="table" style="table-layout:fixed; word-break:break-all">
-    <col width="300px">
-    <col width="320px">
-    <tr>
-        <th>Picture</th>
-        <th>Message</th>
-        <th>Seller</th>
-        <th>Created at</th>
-        <th>Updated at</th>
-        <% if user_signed_in? || current_page?(follows_path) %>
-            <th colspan="1"></th>
-        <% end %>
-    </tr>
-    <% @products.each do |p| %>
-        <tr id="list">
-            <td style="text-align: center"><%= link_image_for(p) %></td>
-            <td><div class="scrollable"><%= simple_format(auto_link(p.message)) %></div></td>
-            <td><%= link_to p.name, "https://www.facebook.com/#{p.uid}" %></td>
-            <td><%= time_ago_in_words(p.created_time) %> ago</td>
-            <td><%= time_ago_in_words(p.updated_time) %> ago</td>
-            <% if user_signed_in? %>
-                <td><%= link_user_follow(current_user, p) %></th>
-            <% end %>
-        </tr>
+  <col width="300px">
+  <col width="320px">
+  <tr>
+    <th>Picture</th>
+    <th>Message</th>
+    <th>Seller</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <% if user_signed_in? || current_page?(follows_path) %>
+      <th colspan="1"></th>
     <% end %>
+  </tr>
+  <% @products.each do |p| %>
+    <tr id="list">
+      <td style="text-align: center"><%= link_image_for(p) %></td>
+      <td><div class="scrollable"><%= simple_format(auto_link(p.message)) %></div></td>
+      <td><%= link_to p.name, "https://www.facebook.com/#{p.uid}" %></td>
+      <td><%= time_ago_in_words(p.created_time) %> ago</td>
+      <td><%= time_ago_in_words(p.updated_time) %> ago</td>
+      <% if user_signed_in? %>
+        <td><%= link_user_follow(current_user, p) %></th>
+      <% end %>
+    </tr>
+  <% end %>
 </table>
 

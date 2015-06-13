@@ -2,25 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $list_width: 230px;
-$test: 200px;
+$sqr-side: 200px;
+$sqr-margin: 5px;
 
-.test_2 {
+.sqr {
   float: left;
-  width: $test;
-  height: $test;
+  width: $sqr-side;
+  height: $sqr-side;
   text-align: center;
-  position:relative;
+  position: relative;
   overflow: auto;
   text-overflow: ellipsis;
-  margin: 5px;
+  margin: $sqr-margin;
 }
 
-.test_img {
+.sqr-img {
   object-fit: cover;
   object-position: center; 
-  width: $test;
-  height: $test;
-  margin: 5px;
+  width: $sqr-side;
+  height: $sqr-side;
+  position: absolute;
+  left: 0;
+}
+
+.loveca {
+  position: absolute;
+  right: $sqr-margin;
+  top: $sqr-margin;
+  width: 20px;
+  opacity: 0;
+  z-index: 10;
+}
+
+.sqr:hover .loveca {
+  opacity: 1;
 }
 
 .img_p {

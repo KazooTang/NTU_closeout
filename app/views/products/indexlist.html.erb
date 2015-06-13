@@ -1,19 +1,23 @@
 <div class='container'>
-    <% @products.each do |p| %>
-        <% if p.attachments.empty? %>
-            <% if p.picture %>
-                <%= image_tag(p.picture, class: 'test_img') %>
-            <% else %>
-                <div class='test_2'>
-                    <%= simple_format(p.message) %>
-                </div>
-            <% end %>
+  <% @products.each do |p| %>
+    <% if p.attachments.empty? %>
+      <div class='sqr'>
+        <% if p.picture %>
+          <%= sqr_link_image_for(p) %> 
         <% else %>
-            <% p.attachments.each do |a| %>
-                <%= image_tag(a.image_src, class: 'test_img') %>
+          <%= simple_format(p.message) %>
         <% end %>
+        <%= link_to image_tag('loveca-01.png', class: 'loveca'), follows_path(p), method: :post %> 
+      </div>
+    <% else %>
+      <% p.attachments.each do |a| %>
+        <div class='sqr'>
+          <%= sqr_link_image_for(a) %>
+          <%#= image_tag 'loveca-01.png', class: 'loveca'%>
+        </div>
+      <% end %>
     <% end %>
-<% end %>
+  <% end %>
 </div>
 <p>
 <%= paginate @products %>
