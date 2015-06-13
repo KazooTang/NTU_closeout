@@ -9,5 +9,6 @@ Product.last.id.downto(1) do |i|
     p = Product.where(pid: Product.find(i).pid)
     p[0].message = '(DELETED)' + p[0].message if p[0].message && !p[0].message.include?('(DELETED)')
     p[0].save
+    p p.pid
   end
 end

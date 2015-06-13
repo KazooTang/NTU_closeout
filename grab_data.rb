@@ -24,12 +24,12 @@ while d
     
     begin
       dd = g.get_object("#{p.pid}?fields=attachments")
-      next if !dd.include?('attachments') || !dd['attachments']['data'].first.include?('subattachments')
+#      next if !dd.include?('attachments') || !dd['attachments']['data'].first.include?('subattachments')
       dd['attachments']['data'].first['subattachments']['data'].each do |y|
-        a = Attachment.find_by(oid: y['target']['id']) || Attachment.new
-        a.image_src = y['media']['image']['src']
-        a.oid = y['target']['id']
-        a.ourl = y['target']['url']
+        a = Attachment.find_by(pid: y['target']['id']) || Attachment.new
+        a.picture = y['media']['image']['src']
+        a.pid = y['target']['id']
+        a.link = y['target']['url']
         a.product = p
         a.save
       end
