@@ -1,13 +1,12 @@
-<% p = @a || @p %>
-<div class="modal fade" id=<%= p.pid %> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<% x = a || p %>
+<div class="modal fade" id=<%= x.pid %> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog big-modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <div class="modal-pic-div"><%= link_to image_tag(p.picture, class: 'modal-pic'), p.link %></div>
-        <div class="modal-message"><%= simple_format(@p.message) %></div>
+        <div class="modal-pic-div"><%= link_to image_tag(x.picture, class: 'modal-pic'), x.link %></div>
+        <div class="modal-message"><%= simple_format(p.message) %></div>
       </div>
     </div>
   </div>
 </div>
-

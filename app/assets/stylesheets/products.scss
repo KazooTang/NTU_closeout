@@ -25,16 +25,27 @@ $sqr-margin: 5px;
   left: 0;
 }
 
-.loveca {
+.hover-icon {
   position: absolute;
-  right: $sqr-margin;
   top: $sqr-margin;
   width: 20px;
   opacity: 0;
   z-index: 10;
 }
 
+.loveca {
+  right: $sqr-margin;
+}
+
+.facebook {
+  left: $sqr-margin;
+}
+
 .sqr:hover .loveca {
+  opacity: 1;
+}
+
+.sqr:hover .facebook {
   opacity: 1;
 }
 
