@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611184155) do
+ActiveRecord::Schema.define(version: 20150613173624) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "picture"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150611184155) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

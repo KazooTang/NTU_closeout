@@ -1,19 +1,24 @@
 <div class='container'>
   <% @products.each do |p| %>
+    <% @p = p %>
     <% if p.attachments.empty? %>
       <div class='sqr'>
         <% if p.picture %>
-          <%= sqr_link_image_for(p) %> 
+          <%= link_to image_tag(p.picture, class: 'sqr-img'), p.link, 'data-toggle': 'modal', 'data-target': "##{p.pid}" %>
+          <%= render 'modal' %>
+
         <% else %>
-          <%= simple_format(p.message) %>
+          <%= link_to simple_format(p.message), p.link %>
         <% end %>
         <%= link_to image_tag('loveca-01.png', class: 'loveca'), follows_path(p), method: :post %> 
       </div>
     <% else %>
       <% p.attachments.each do |a| %>
+        <% @a = a %>
         <div class='sqr'>
-          <%= sqr_link_image_for(a) %>
-          <%#= image_tag 'loveca-01.png', class: 'loveca'%>
+          <%= link_to image_tag(a.picture, class: 'sqr-img'), a.link, 'data-toggle': 'modal', 'data-target': "##{a.pid}" %>
+          <%= link_to image_tag('loveca-01.png', class: 'loveca'), follows_path(p), method: :post %> 
+          <%= render 'modal' %>
         </div>
       <% end %>
     <% end %>
@@ -22,4 +27,3 @@
 <p>
 <%= paginate @products %>
 </p>
-

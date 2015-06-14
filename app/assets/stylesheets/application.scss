@@ -20,3 +20,42 @@
 .circular-image {
   border-radius:  50%;
 }
+
+.modal-dialog {
+  width: 80%;
+}
+
+.modal-body {
+  height: 90vh;
+}
+
+div .modal-pic-div {
+  position: absolute;
+  margin: 10px;
+//  left: 3%;
+//  top: 5%;
+  width: 70%;
+  height: 90%;
+  float: left;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.modal-pic {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+div .modal-message {
+  position: absolute;
+  margin: 10px;
+  right: 20px;
+//  right: 5%;
+//  top: 5%;
+  width: 20%;
+  float: right;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: left;
+}
+

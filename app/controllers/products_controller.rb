@@ -19,4 +19,11 @@ class ProductsController < ApplicationController
   def sold
     @products = Product.sold.page(params[:page]).updated
   end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    flash[:notice] = 'Deleted!'
+    redirect_to :back
+  end
 end
