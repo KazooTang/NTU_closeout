@@ -1,12 +1,16 @@
 <div class='sqr'>
-  <% if x.picture %>
-    <%= link_to image_tag(x.picture, class: 'sqr-img'), x.link, 'data-toggle': 'modal', 'data-target': "##{x.pid}" %>
-  <% else %>
-    <%= simple_format(p.message) %>
-  <% end %>
+  <%= link_to '#', 'data-toggle': 'modal', 'data-target': "##{x.pid}" do
+    if x.picture
+      image_tag(x.picture, class: 'sqr-img')
+    else
+      simple_format(p.message)
+    end
+  end %>
 
-  <%= link_to image_tag('facebook_circle_color-512.png', class: 'facebook hover-icon'), x.link %> 
-  <%= link_to image_tag('loveca-01.png', class: 'loveca hover-icon'), follows_path(p), method: :post %> 
-  <%= render 'modal', p: p, a: x %>
+  <%= link_to image_tag('icon-02.png', class: 'facebook hover-icon'), x.link %>
+  <%= if user_signed_in? 
+      link_to image_tag('icon-01.png', class: 'loveca hover-icon'), follows_path(p), method: :post 
+    end %> 
 </div>
+<%= render 'modal', p: p, a: x %>
 

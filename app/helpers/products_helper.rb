@@ -17,7 +17,7 @@ module ProductsHelper
     end
   end
 
-  def sqr_link_image_for(x)
-    link_to image_tag(x.picture, class: 'sqr-img'), x.link
+  def user_link(p)
+    link_to p.name, "https://www.facebook.com/#{p.uid}"
   end
 end

@@ -1,4 +1,14 @@
-<h1>We have <%= pluralize @products_n, 'product' %> selling now! </h1>
-<%= render 'table' %>
+<div class='container'>
+  <% @products.each do |p| %>
+    <% if p.attachments.empty? %>
+      <%= render 'sqr', x: p, p: p %>
+    <% else %>
+      <% p.attachments.each do |a| %>
+        <%= render 'sqr', x: a, p: p %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+<p>
 <%= paginate @products %>
-
+</p>

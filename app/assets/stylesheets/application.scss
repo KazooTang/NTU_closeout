@@ -17,6 +17,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+$modal-hight: 90%;
+$modal-margin: 10px;
+
 .circular-image {
   border-radius:  50%;
 }
@@ -37,34 +50,42 @@
   max-height: 100%;
 }
 
-div .modal-pic-div {
+div.modal-pic-div {
   position: absolute;
-  margin: 10px;
+  margin: $modal-margin;
 //  left: 3%;
 //  top: 5%;
   width: 70%;
-  max-height: 90%;
+  height: $modal-hight;
   float: left;
   overflow: hidden;
   text-align: center;
 }
 
 .modal-pic {
-  max-width: 100%;
-  max-height: 100%;
-  vertical-align: middle;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }
 
-div .modal-message {
+div.modal-message {
   position: absolute;
-  margin: 10px;
-  right: 20px;
+  margin: $modal-margin;
+  right: $modal-margin * 2;
 //  right: 5%;
 //  top: 5%;
   width: 23%;
+  height: $modal-hight;
   float: right;
   overflow-x: hidden;
   overflow-y: auto;
+  overflow: -moz-scrollbars-vertical;
   text-align: left;
 }
 
+div.modal-message-full {
+  @extend .modal-message;
+  right: auto;
+  left: 30%;
+  width: 40%;
+}
