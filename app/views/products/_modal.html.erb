@@ -10,8 +10,16 @@
       <% else %>
         <div class="modal-message-full">
         <% end %>
-          <p>Seller: <%= user_link(p) %></p>
+          <div>
+            <p>Seller: <%= user_link(p) %></p>
+            <p>Create: <%= time_ago_in_words(p.created_time) %> ago</p>
+            <p>Updated: <%= time_ago_in_words(p.updated_time) %> ago</p>
+            <%= link_to 'Facebook', x.link, class: 'btn btn-primary' %>
+            <%= link_to 'Follow', x.link, class: 'btn btn-danger' %>
+          </div>
+          <p>
           <%= simple_format(auto_link(p.message)) %>
+          </p>
         </div>
       </div>
     </div>

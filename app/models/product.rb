@@ -20,7 +20,8 @@ class Product < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('message like ? OR name like ?', "%#{search}%", "%#{search}%")
+      search_length = search.split.length
+      where([(['(message like ? OR name like ?)'] * search_length).join(' AND ')] + search.split.map{|x| ["%#{x}%"] * 2}.flatten)
     else
       all
     end

@@ -11,7 +11,7 @@ $sqr-margin: 5px;
   height: $sqr-side;
   text-align: center;
   position: relative;
-  overflow: auto;
+  overflow: hidden;
   text-overflow: ellipsis;
   margin: $sqr-margin;
 
