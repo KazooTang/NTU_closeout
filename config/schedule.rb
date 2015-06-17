@@ -1,5 +1,6 @@
 set :environment, "development"
 set :output, {:standard => '/path/to/file.log'}
+env :MAILTO, "st870522@gmail.com"
 
 every 3.hours do
   runner 'deleted_post.rb'

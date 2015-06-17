@@ -18,6 +18,6 @@ module ProductsHelper
   end
 
   def user_link(p)
-    link_to p.name, "https://www.facebook.com/#{p.uid}"
+    link_to p.u_name, "https://www.facebook.com/#{p.uid}"
   end
 end

@@ -21,7 +21,7 @@ class Product < ActiveRecord::Base
   def self.search(search)
     if search
       search_length = search.split.length
-      where([(['(message like ? OR name like ?)'] * search_length).join(' AND ')] + search.split.map{|x| ["%#{x}%"] * 2}.flatten)
+      where([(['(message like ? OR u_name like ?)'] * search_length).join(' AND ')] + search.split.map{|x| ["%#{x}%"] * 2}.flatten)
     else
       all
     end

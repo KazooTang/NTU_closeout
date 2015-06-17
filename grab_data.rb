@@ -10,8 +10,16 @@ while d
     p = Product.find_by(pid: x['id']) || Product.new
     p.pid = x['id']
     p.uid = x['from']['id']
-    p.name = x['from']['name']
-    p.message = x['message']
+    p.u_name = x['from']['name']
+    begin
+      m = x['message'].split("\n")
+      p.p_name = m[0]
+      p.price = m[1][/NT\$([0-9,]+)/, 1]
+      p.place = m[1][/NT\$([0-9,]+) - (.*)/, 2]
+      p.message = m[3..-1].join("\n")
+    rescue
+      p.message = x['message']
+    end
     begin
       p.picture = g.get_object("#{p.pid}?fields=full_picture")['full_picture'] || x['picture']
     rescue
@@ -24,20 +32,19 @@ while d
     
     begin
       dd = g.get_object("#{p.pid}?fields=attachments")
-#      next if !dd.include?('attachments') || !dd['attachments']['data'].first.include?('subattachments')
-      dd['attachments']['data'].first['subattachments']['data'].each do |y|
+      dd['attachments']['data'][0]['subattachments']['data'].each do |y|
         a = Attachment.find_by(pid: y['target']['id']) || Attachment.new
+        a.message = y['description']
         a.picture = y['media']['image']['src']
         a.pid = y['target']['id']
         a.link = y['target']['url']
         a.product = p
         a.save
       end
-    rescue
-      p p.pid
+    rescue => error
     end
     p p.pid
   end
-  break if d.last['updated_time'] < Time.now - ARGV[0].to_i.minutes
+  break if d.last['created_time'] < Time.now - ARGV[0].to_i.hours
   d = d.next_page
 end

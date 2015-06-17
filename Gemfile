@@ -56,6 +56,8 @@ group :development, :test do
   gem 'spring'
 
   gem "letter_opener"
+  
+  gem 'awesome_print'
 
   gem 'sqlite3'
 end

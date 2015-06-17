@@ -1,4 +1,7 @@
 <div class='sqr'>
+  <div class='message-head'>
+    <%= simple_format(p.message) %>
+  </div>
   <%= link_to '#', 'data-toggle': 'modal', 'data-target': "##{x.pid}" do
     if x.picture
       image_tag(x.picture, class: 'sqr-img')
