@@ -14,9 +14,15 @@
             <p>Seller: <%= user_link(p) %></p>
             <p>Create: <%= time_ago_in_words(p.created_time) %> ago</p>
             <p>Updated: <%= time_ago_in_words(p.updated_time) %> ago</p>
-            <%= link_to 'Facebook', x.link, class: 'btn btn-primary' %>
-            <%= link_to 'Follow', x.link, class: 'btn btn-danger' %>
+            <%= link_to 'Facebook', x.link, class: 'btn btn-primary', target: '_blank' %>
+            <%= link_to 'Follow', x.link, class: 'btn btn-danger', target: '_blank' %>
           </div>
+          <% if p.p_name %>
+              <p>
+              <%= p.p_name %><br>
+              <%= p.price %> - <%= p.place %>
+              </p>
+          <% end %>
           <p>
           <%= simple_format(auto_link(x.message || p.message)) %>
           </p>

@@ -1,6 +1,11 @@
 <div class='sqr'>
   <div class='message-head'>
-    <%= simple_format(p.message) %>
+      <% if p.p_name.nil? %>
+          <%= simple_format(truncate(p.message, length: 30, separator: '\n')) %>
+      <% else %>
+          <p><%= p.p_name %><br>
+          <%= p.price %></p>
+      <% end %>
   </div>
   <%= link_to '#', 'data-toggle': 'modal', 'data-target': "##{x.pid}" do
     if x.picture
@@ -10,7 +15,7 @@
     end
   end %>
 
-  <%= link_to image_tag('icon-02.png', class: 'facebook hover-icon'), x.link %>
+  <%= link_to image_tag('icon-02.png', class: 'facebook hover-icon'), x.link, target: '_blank' %>
   <%= if user_signed_in? 
       link_to image_tag('icon-01.png', class: 'loveca hover-icon'), follows_path(p), method: :post 
     end %> 

@@ -14,7 +14,12 @@
   <% @products.each do |p| %>
     <tr id="list">
       <td style="text-align: center"><%= link_image_for(p) %></td>
-      <td><div class="scrollable"><%= simple_format(auto_link(p.message)) %></div></td>
+      <td><div class="scrollable">
+              <%= p.p_name %><br>
+              NT$ <%= p.price %><br>
+              <%= p.place %><br>
+              <%= simple_format(auto_link(p.message)) %></div>
+      </td>
       <td><%= user_link(p) %></td>
       <td><%= time_ago_in_words(p.created_time) %> ago</td>
       <td><%= time_ago_in_words(p.updated_time) %> ago</td>
