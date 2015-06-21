@@ -1,5 +1,18 @@
 <div class="container">
-    <h1 id="now-selling">目前有 <%= @products.count %> 件商品出清中！</h1>
+    <div class='pic-wall'>
+        <% n = 0 %>
+        <% @products.each do |p| %>
+            <% if p.picture %>
+                <%= image_tag p.picture, class:'wall-pic'%>
+                <% n += 1 %>
+            <% end %>
+            <% break if n == 21 * 8 %>
+        <% end %>
+        <div class='cover-pic-wall'>
+            <h1>目前有 <%= @products.count %> 件商品出清中！</h1>
+        </div>
+    </div>
+
 
     <div class="ind-1">
         <div class="ind-1-2">
