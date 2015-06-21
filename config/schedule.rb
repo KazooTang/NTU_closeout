@@ -6,6 +6,9 @@ every 3.hours do
   runner 'deleted_post.rb'
 end
 
+every 1.day, :at => '0:00 am' do
+  runner 'deleted_post.rb'
+end
 
 # Use this file to easily define all of your cron jobs.
 #

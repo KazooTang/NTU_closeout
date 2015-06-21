@@ -2,6 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user-img {
-  max-width: 50px;
+$padding-lr: 30px;
+
+#now-selling {
+  text-align: center;
 }
+
+div.ind-1 {
+  min-width: 50%;
+  height: auto;
+//  border: solid;
+//  border-size: 1px;
+  text-align: center;
+  div.ind-1-2 {
+    display: inline-block;
+    width: 40%;
+    height: 100px;
+  }
+}
+
+div.ind-pre {
+  z-index: 0;
+  border: dashed;
+  border-size: 1px;
+  border-color: #666;
+  display: table-cell;
+  .sqr-lr {
+    width: 30px;
+    left: 0;
+    top: 0;
+  }
+  .arr {
+    top: 35%;
+    position: absolute;
+    height: 40px;
+  }
+  .arr-1 { left: 0; }
+  .arr-2 { right: 0; }
+}
+

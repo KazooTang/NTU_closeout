@@ -5,6 +5,7 @@ $list_width: 230px;
 $sqr-side: 200px;
 $sqr-margin: 5px;
 
+
 .sqr {
   float: left;
   width: $sqr-side;
@@ -37,7 +38,7 @@ $line_height: 1.6em;
   right: 0;
   bottom: 0;
   width: $sqr-side;
-  height: $line_height * 3;
+  min-height: $line_height;
   line-height: $line-height;
   text-align: center;
   text-overflow: ellipsis;
@@ -45,6 +46,9 @@ $line_height: 1.6em;
   background-color: #000;
   opacity: 0;
   color: #FFF;
+//  display:inline-block;
+//  display: flex;
+//  flex-flow: column;
 }
 
 .hover-icon {

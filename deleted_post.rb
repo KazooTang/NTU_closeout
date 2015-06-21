@@ -10,6 +10,7 @@ end
 Product.last.id.downto(1) do |i|
   begin
     g.get_object(Product.find(i).pid)
+    ap i
   rescue
     begin
       p = Product.find(i)

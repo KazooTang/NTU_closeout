@@ -15,7 +15,7 @@
             <p>Create: <%= time_ago_in_words(p.created_time) %> ago</p>
             <p>Updated: <%= time_ago_in_words(p.updated_time) %> ago</p>
             <%= link_to 'Facebook', x.link, class: 'btn btn-primary', target: '_blank' %>
-            <%= link_to 'Follow', x.link, class: 'btn btn-danger', target: '_blank' %>
+            <%= link_to 'Follow', follows_path(p), class: 'btn btn-danger', method: :post %>
           </div>
           <% if p.p_name %>
               <p>
