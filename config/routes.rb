@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :attachments, only:[:destroy]
-  resources :follows, only:[:destroy, :create]
-  resources :products, only:[:index, :show, :destroy]
+  resources :attachments, only: [:destroy]
+  resources :follows, only: [:destroy, :create]
+  resources :products, only: [:index, :show, :destroy]
   root 'welcome#index'
   get 'search' => 'products#search', as: 'products_search'
   get 'sold' => 'products#sold', as: 'products_sold'

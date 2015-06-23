@@ -1,0 +1,7 @@
+$("a[data-id=<%= @product.id %>]").html('<%= escape_javascript(render 'products/loveca', p: @product) %>');
+
+$.notify('<%= j @message %>', {
+    className: '<%= j @style || 'success' %>',
+    globalPosition: 'bottom right',
+});
+
