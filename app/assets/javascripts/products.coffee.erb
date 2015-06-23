@@ -1,0 +1,33 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+$(document).ready ->
+  $('.scrollable').bind 'mousewheel DOMMouseScroll', (e) ->
+    e0 = e.originalEvent
+    delta = e0.wheelDelta or -e0.detail
+#    console.log 'meow'
+    @scrollTop -= delta
+    e.preventDefault()
+    
+  $('a').on 'ajax:success', (e, data, status, xhr) ->
+    $.notify data.message, {
+      className: data.style,
+      globalPosition: 'bottom right',
+    }
+    $("a[data-id=#{data.product_id}-add]").each ->
+      $(this).html('<%= image_tag('icon-01-2.png', class: 'loveca hover-icon show') %>')
+        .data('method', 'delete')
+        .attr('href', data.path)
+        .attr('data-id', data.follow_id)
+    $("a[data-id=#{data.follow_id}-delete]").each ->
+      $(this).html('<%= image_tag('icon-01.png', class: 'loveca hover-icon') %>')
+        .data('method', 'post')
+        .attr('href', data.path)
+        .attr('data-id', data.product_id)
+
+    console.log data
+#    $("a##{data.pid}}").replace(/.*/g, 'meow')
+#      $("<img src = '/assets/images/icon-01-2.png'>").addClass('loveca hover-icon show'))
+#    $('body').append($('<div>').text(data.pid).addClass())
+

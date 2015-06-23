@@ -8,11 +8,6 @@ $sqr-side-s: 50px;
 .pic-wall {
   width: 22 * $sqr-side-s; 
   height: 9 * $sqr-side-s;
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
 .wall-pic {
@@ -21,16 +16,13 @@ $sqr-side-s: 50px;
   object-fit: cover;
   width: $sqr-side-s;
   height: $sqr-side-s;
-  opacity: 0.7;
   z-index: -1;
 }
 
 .cover-pic-wall {
   position: absolute;
   background-color: #FFF;
-  opacity: 0.9;
-  top: 50%;
-  text-align: center;
+  opacity: 0.7;
 }
 
 div.ind-1 {

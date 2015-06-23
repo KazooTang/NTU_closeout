@@ -1,5 +1,5 @@
 set :environment, "development"
-set :output, {:standard => '/path/to/file.log'}
+set :output, {:standard => '/log/file.log'}
 env :MAILTO, "st870522@gmail.com"
 
 every 3.hours do

@@ -11,9 +11,9 @@ module ProductsHelper
 
   def link_user_follow(u, p)
     if u.follows.where(product_id: p).empty?
-      link_to 'Follow', follows_path(p), method: :post, class: 'btn btn-primary', turbolinks: true
+      link_to 'Follow', follows_path(p), method: :post, class: 'btn btn-primary', remote: true
     else
-      link_to 'Unfollow', follow_path(u.follows.where(product: p)[0].id), method: :delete, class: 'btn btn-warning'#, data: { confirm: 'Are you sure?'}
+      link_to 'Unfollow', follow_path(u.follows.where(product: p)[0].id), method: :delete, class: 'btn btn-warning', id: 'meow', remote: true #, data: { confirm: 'Are you sure?'}
     end
   end
 

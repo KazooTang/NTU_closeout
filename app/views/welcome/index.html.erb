@@ -1,36 +1,36 @@
-<div class="container">
+<div class='container'>
     <div class='pic-wall'>
         <% n = 0 %>
-        <% @products.each do |p| %>
+        <% @products.shuffle.each do |p| %>
             <% if p.picture %>
-                <%= image_tag p.picture, class:'wall-pic'%>
+                <%= image_tag p.picture, class:'wall-pic' %>
                 <% n += 1 %>
             <% end %>
             <% break if n == 21 * 8 %>
         <% end %>
         <div class='cover-pic-wall'>
-            <h1>目前有 <%= @products.count %> 件商品出清中！</h1>
         </div>
+            <h1>目前有 <%= @products.count %> 件商品出清中！</h1>
     </div>
 
 
-    <div class="ind-1">
-        <div class="ind-1-2">
+    <div class='ind-1'>
+        <div class='ind-1-2'>
             <h2>在找什麼？
                 <%= form_tag products_search_path, method: :get, class: 'navbar-form' do %>
                     <%= text_field_tag :search, params[:search], size: 40, placeholder: '請輸入關鍵字', class: 'form-control' %>
-                    <%= submit_tag "GO!", name: nil, class: 'btn btn-default'%>
+                    <%= submit_tag 'GO!', name: nil, class: 'btn btn-default'%>
                 <% end %>
             </h2>
         </div>
-        <div class="ind-1-2">
-            <h2><%= link_to "隨意逛逛 ->", products_path %></h2>
+        <div class='ind-1-2'>
+            <h2><%= link_to '隨意逛逛 ->', products_path %></h2>
         </div>
     </div>
 
 </div>
 <div>
-    <div class="ind-pre">
+    <div class='ind-pre'>
         <div class='sqr sqr-lr'><%= link_to_previous_page @ps, image_tag('arrow-01.png', class:'arr arr-1') %></div>
         <% @ps.each do |p| %>
             <%= render 'products/sqr', x: p, p: p %>
@@ -40,12 +40,12 @@
 
     <div>
     <% if user_signed_in? %>
-        <button class="btn btn-default"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></button>
+        <button class='btn btn-default'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></button>
 
     <% else %>
-        <button class="btn btn-default"><%= link_to "Sign In", new_user_session_path %></button>
-        <button class="btn btn-default"><%= link_to "Sign Up", new_user_registration_path %></button>
-        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+        <button class='btn btn-default'><%= link_to 'Sign In', new_user_session_path %></button>
+        <button class='btn btn-default'><%= link_to 'Sign Up', new_user_registration_path %></button>
+        <%= link_to 'Sign in with Facebook', user_omniauth_authorize_path(:facebook) %>
     <% end %>
     </div>
 

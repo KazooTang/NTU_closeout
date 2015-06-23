@@ -17,7 +17,12 @@
 
   <%= link_to image_tag('icon-02.png', class: 'facebook hover-icon'), x.link, target: '_blank' %>
   <%= if user_signed_in? 
-      link_to image_tag('icon-01.png', class: 'loveca hover-icon'), follows_path(p), method: :post
+          if current_user.follows.where(product_id: p).empty?
+              link_to image_tag('icon-01.png', class: 'loveca hover-icon'), follows_path(p), method: :post, remote: true, data: {id: p.id.to_s + '-add'}
+          else
+              id = current_user.follows.where(product_id: p)[0].id.to_s
+              link_to image_tag('icon-01-2.png', class: 'loveca hover-icon show'), follow_path(id), method: :delete, remote: true, data: {id: id + '-delete'}
+          end
       end %> 
 </div>
 <%= render 'products/modal', p: p, a: x %>

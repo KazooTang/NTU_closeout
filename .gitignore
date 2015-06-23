@@ -18,3 +18,5 @@
 
 *.swp
 *.un~
+
+/app/assets/.DS_Store
