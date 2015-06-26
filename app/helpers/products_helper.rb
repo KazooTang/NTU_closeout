@@ -1,10 +1,10 @@
 module ProductsHelper
   def link_image_for(p)
     if p.attachments.empty?
-      img = image_tag(p.picture || 'default.png', :class => 'img_p')
+      img = image_tag(p.full_picture || 'default.png', :class => 'img_p')
       return link_to(img, p.link)
     end
-    img = p.attachments.first.picture
+    img = p.attachments.first.full_picture
     url = product_path(p)
     link_to image_tag(img, :class => 'img_p'), url, :title => "Show Attachments"
   end
@@ -14,6 +14,6 @@ module ProductsHelper
   end
 
   def user_link(p)
-    link_to p.u_name, "https://www.facebook.com/#{p.uid}"
+    link_to p.seller_name, "https://www.facebook.com/#{p.seller_id}"
   end
 end

@@ -1,11 +1,11 @@
 <% x = a || p %>
-<div class="modal fade" id=<%= x.pid %> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id=<%= x.product_id %> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog big-modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <% if x.picture %>
-        <div class="modal-pic-div"><%= link_to image_tag(x.picture, class: 'modal-pic'), x.link %></div>
+        <% if x.full_picture %>
+        <div class="modal-pic-div"><%= link_to image_tag(x.full_picture, class: 'modal-pic'), x.link %></div>
         <div class="modal-message">
       <% else %>
         <div class="modal-message-full">
@@ -19,9 +19,9 @@
                 <%= link_to 'Follow', follows_path(p), class: 'btn btn-danger', method: :post, remote: true %>
             <% end %>
           </div>
-          <% if p.p_name %>
+          <% if p.product_name %>
               <p>
-              <%= p.p_name %><br>
+              <%= p.product_name %><br>
               <%= p.price %> - <%= p.place %>
               </p>
           <% end %>

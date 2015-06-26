@@ -3,6 +3,6 @@
 </div>
 
 <% @product.attachments.each do |x| %>
-    <%= link_to image_tag(x.picture, :class => 'img_show'), x.link %>
+    <%= link_to image_tag(x.full_picture, :class => 'img_show'), x.link %>
 <% end %>
 

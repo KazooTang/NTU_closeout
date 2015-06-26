@@ -1,15 +1,15 @@
 <div class='sqr'>
   <div class='message-head'>
-      <% if p.p_name.nil? %>
+      <% if p.product_name.nil? %>
           <%= simple_format(truncate(p.message, length: 30, separator: '\n')) %>
       <% else %>
-          <p><%= p.p_name %><br>
+          <p><%= p.product_name %><br>
           <%= p.price %></p>
       <% end %>
   </div>
-  <%= link_to '#', 'data-toggle': 'modal', 'data-target': "##{x.pid}" do
-    if x.picture
-      image_tag(x.picture, class: 'sqr-img')
+  <%= link_to '#', 'data-toggle': 'modal', 'data-target': "##{x.product_id}" do
+    if x.full_picture
+      image_tag(x.full_picture, class: 'sqr-img')
     else
       simple_format(p.message)
     end

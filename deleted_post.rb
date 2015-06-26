@@ -9,15 +9,15 @@ end
 
 Product.last.id.downto(1) do |i|
   begin
-    g.get_object(Product.find(i).pid)
+    g.get_object(Product.find(i).product_id)
     ap i
   rescue
     begin
       p = Product.find(i)
-      if p.p_name.nil?
+      if p.product_name.nil?
         p.message = add_deleted(p.message)
       else
-        p.p_name = add_deleted(p.p_name)
+        p.product_name = add_deleted(p.product_name)
       end
       ap p.message
       p.save

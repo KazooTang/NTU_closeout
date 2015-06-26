@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617180129) do
+ActiveRecord::Schema.define(version: 20150624191142) do
 
   create_table "attachments", force: :cascade do |t|
-    t.string   "picture"
-    t.string   "pid"
+    t.string   "full_picture"
+    t.string   "attachment_id"
     t.string   "link"
     t.integer  "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.text     "message"
   end
 
@@ -36,19 +36,20 @@ ActiveRecord::Schema.define(version: 20150617180129) do
   add_index "follows", ["user_id"], name: "index_follows_on_user_id"
 
   create_table "products", force: :cascade do |t|
-    t.string   "pid",          null: false
-    t.string   "uid"
-    t.string   "u_name"
+    t.string   "product_id",   null: false
+    t.string   "seller_id"
+    t.string   "seller_name"
     t.text     "message"
-    t.string   "picture"
+    t.string   "full_picture"
     t.string   "link"
     t.datetime "created_time"
     t.datetime "updated_time"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "price"
-    t.string   "p_name"
+    t.string   "product_name"
     t.string   "place"
+    t.string   "picture"
   end
 
   create_table "users", force: :cascade do |t|
