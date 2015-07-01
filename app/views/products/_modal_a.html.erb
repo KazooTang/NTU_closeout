@@ -1,10 +1,10 @@
-<div class="modal fade" id=<%= p.product_id %> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id=<%= a.attachment_id %> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog big-modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <% if p.full_picture %>
-        <div class="modal-pic-div"><%= link_to image_tag(p.full_picture, class: 'modal-pic'), p.link %></div>
+        <% if a.full_picture %>
+        <div class="modal-pic-div"><%= link_to image_tag(a.full_picture, class: 'modal-pic'), a.link %></div>
         <div class="modal-message">
       <% else %>
         <div class="modal-message-full">
@@ -13,7 +13,7 @@
             <p>Seller: <%= user_link(p) %></p>
             <p>Create: <%= time_ago_in_words(p.created_time) %> ago</p>
             <p>Updated: <%= time_ago_in_words(p.updated_time) %> ago</p>
-            <%= link_to 'Facebook', p.link, class: 'btn btn-primary', target: '_blank' %>
+            <%= link_to 'Facebook', a.link, class: 'btn btn-primary', target: '_blank' %>
             <% if user_signed_in? %>
                 <%= link_to 'Follow', follows_path(p), class: 'btn btn-danger', method: :post, remote: true %>
             <% end %>
@@ -25,7 +25,7 @@
               </p>
           <% end %>
           <p>
-          <%= simple_format(auto_link(p.message)) %>
+          <%= simple_format(auto_link(a.message || p.message)) %>
           </p>
         </div>
       </div>

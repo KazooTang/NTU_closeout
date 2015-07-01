@@ -6,6 +6,6 @@ class UsersController < ApplicationController
   end
 
   def follow
-    @products = current_user.follows.map{|x| x.product}
+    @products = Product.where(id: current_user.follows.map{|x| x.product.id}).page(params[:page])
   end
 end

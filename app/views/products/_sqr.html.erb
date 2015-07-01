@@ -7,7 +7,8 @@
           <%= p.price %></p>
       <% end %>
   </div>
-  <%= link_to '#', 'data-toggle': 'modal', 'data-target': "##{x.product_id}" do
+  <% product_id = x == p ? x.product_id : x.attachment_id %>
+  <%= link_to '#', 'data-toggle': 'modal', 'data-target': "##{product_id}" do
     if x.full_picture
       image_tag(x.full_picture, class: 'sqr-img')
     else
@@ -18,5 +19,11 @@
   <%= link_to image_tag('icon-02.png', class: 'facebook hover-icon'), x.link, target: '_blank' %>
   <%= render 'products/loveca', p: p %>
 </div>
-<%= render 'products/modal', p: p, a: x %>
+<%= if p == x
+        render 'products/modal', p: p 
+    else
+        render 'products/modal_a', p: p, a: x
+    end
+%>
+<%#= render 'products/modal', p: p, a: x %>
 

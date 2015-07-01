@@ -9,8 +9,10 @@ module ProductsHelper
     link_to image_tag(img, :class => 'img_p'), url, :title => "Show Attachments"
   end
 
-  def link_user_follow(u, p)
-    link_to 'Unfollow', follow_path(u.follows.where(product: p)[0].id), method: :delete, class: 'btn btn-warning', id: 'meow', remote: true #, data: { confirm: 'Are you sure?'}
+  def link_user_follow(p)
+    link_to 'Unfollow', follow_path(p), method: :delete, remote: true, data: {id: p.id}, class: 'btn btn-info'
+
+#    link_to 'Unfollow', follow_path(u.follows.where(product: p)[0].id), method: :delete, class: 'btn btn-warning', id: 'meow', remote: true #, data: { confirm: 'Are you sure?'}
   end
 
   def user_link(p)

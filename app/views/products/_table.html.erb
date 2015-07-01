@@ -24,7 +24,7 @@
       <td><%= time_ago_in_words(p.created_time) %> ago</td>
       <td><%= time_ago_in_words(p.updated_time) %> ago</td>
       <% if user_signed_in? %>
-        <td><%= link_user_follow(current_user, p) %></th>
+        <td><%= link_user_follow(p) %></th>
       <% end %>
     </tr>
   <% end %>

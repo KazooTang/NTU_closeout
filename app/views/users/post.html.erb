@@ -1,2 +1,7 @@
-<%= render '/products/table' %>
+<% if current_user.name.nil? %>
+    <h1> Please sign in with facebook </h1>
+<% else %>
+    <%= render '/products/table' %>
+<% end %>
+
 

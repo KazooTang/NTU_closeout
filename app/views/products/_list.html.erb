@@ -1,10 +1,10 @@
 <div class='container'>
   <% @products.each do |p| %>
     <% if p.attachments.empty? %>
-      <%= render 'sqr', x: p, p: p %>
+      <%= render 'products/sqr', x: p, p: p %>
     <% else %>
       <% p.attachments.each do |a| %>
-        <%= render 'sqr', x: a, p: p %>
+        <%= render 'products/sqr', x: a, p: p %>
       <% end %>
     <% end %>
   <% end %>

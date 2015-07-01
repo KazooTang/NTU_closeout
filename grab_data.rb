@@ -46,6 +46,6 @@ while d
     end
     p p.product_id
   end
-  #break if d.last['updated_time'] < Time.now - ARGV[0].to_i.days
+  break if d.last['updated_time'] < Time.now - ARGV[0].to_i.days
   d = d.next_page
 end
