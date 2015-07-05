@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_autolink', '~> 1.1.6'
 
 # divide pages
-gem "kaminari"
+gem 'kaminari'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -55,9 +55,11 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  gem "letter_opener"
+  gem 'letter_opener'
   
   gem 'awesome_print'
+
+  gem 'better_errors'
 
   gem 'sqlite3'
 end
