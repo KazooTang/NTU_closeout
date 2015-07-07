@@ -1,0 +1,9 @@
+<div class='ind-pre' data='latest'>
+  <div class='sqr sqr-lr'><%= link_to_previous_page @ps, image_tag('arrow-01.png', class:'arr arr-1') %></div>
+  <% @ps.each do |p| %>
+    <%= render 'products/sqr', x: p, p: p %>
+  <% end %>
+  <div class='sqr sqr-lr'><%= link_to_next_page @ps, image_tag('arrow-02.png', class:'arr arr-2'), remote: true %></div>
+</div>
+<div>
+

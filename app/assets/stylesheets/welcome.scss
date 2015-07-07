@@ -8,7 +8,6 @@ $sqr-side-s: 50px;
 .pic-wall {
   width: 22 * $sqr-side-s; 
   height: 9 * $sqr-side-s;
-  text-align: center;
 }
 
 .wall-pic {
@@ -23,7 +22,14 @@ $sqr-side-s: 50px;
 .cover-pic-wall {
   position: absolute;
   background-color: #FFF;
-  opacity: 0.7;
+  width: 11 * $sqr-side-s;
+  height: 1.5 * $sqr-side-s;
+  opacity: 0.8;
+  text-align: center;
+  margin: 3.5 * $sqr-side-s 5.5 * $sqr-side-s;
+  h1 {
+    opacity: 1;
+  }
 }
 
 div.ind-1 {

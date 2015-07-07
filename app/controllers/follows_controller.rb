@@ -8,7 +8,6 @@ class FollowsController < ApplicationController
       @message = 'You may have added QQ'
       @style = 'warning'
     end
-    render 'create'
   end
 
   def destroy
@@ -16,6 +15,5 @@ class FollowsController < ApplicationController
     @product = follow.product
     follow.destroy
     @message = 'Deleted!'
-    render 'create'
   end
 end

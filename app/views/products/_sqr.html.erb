@@ -1,10 +1,10 @@
 <div class='sqr'>
   <div class='message-head'>
-      <% if p.product_name.nil? %>
-          <%= simple_format(truncate(p.message, length: 30, separator: '\n')) %>
-      <% else %>
+      <% if p.product_name %>
           <p><%= p.product_name %><br>
           <%= p.price %></p>
+      <% else %>
+          <%= simple_format(truncate(p.message, length: 30, separator: '\n')) %>
       <% end %>
   </div>
   <% product_id = x == p ? x.product_id : x.attachment_id %>
@@ -25,5 +25,4 @@
         render 'products/modal_a', p: p, a: x
     end
 %>
-<%#= render 'products/modal', p: p, a: x %>
 

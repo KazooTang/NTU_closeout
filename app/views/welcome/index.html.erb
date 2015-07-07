@@ -1,12 +1,7 @@
 <div class='container'>
     <div class='pic-wall'>
-        <% n = 0 %>
-        <% @products.shuffle.each do |p| %>
-            <% if p.picture %>
-                <%= image_tag p.picture, class:'wall-pic' %>
-                <% n += 1 %>
-            <% end %>
-            <% break if n == 21 * 8 %>
+        <% @products_with_picture.each do |p| %>
+          <%= image_tag p.picture, class:'wall-pic' %>
         <% end %>
         <div class='cover-pic-wall'>
             <h1>目前有 <%= @products.count %> 件商品出清中！</h1>
@@ -29,16 +24,10 @@
     </div>
 
 </div>
-<div>
-    <div class='ind-pre'>
-        <div class='sqr sqr-lr'><%= link_to_previous_page @ps, image_tag('arrow-01.png', class:'arr arr-1') %></div>
-        <% @ps.each do |p| %>
-            <%= render 'products/sqr', x: p, p: p %>
-        <% end %>
-        <div class='sqr sqr-lr'><%= link_to_next_page @ps, image_tag('arrow-02.png', class:'arr arr-2') %></div>
-    </div>
 
-    <div>
+<%= render 'latest' %>
+
+<div>
     <% if user_signed_in? %>
         <button class='btn btn-default'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></button>
 
